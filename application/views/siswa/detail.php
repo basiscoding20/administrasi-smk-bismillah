@@ -1,0 +1,262 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1><?= $title; ?></h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle" src="<?= base_url('assets/dist/img/profile/') . $detail['image']; ?>" alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center"><?= $detail['name']; ?></h3>
+
+                            <p class="text-muted text-center"><?= $detail['id']; ?></p>
+
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Tahun Masuk</b>
+                                    <p class="float-right mb-1"><?= $detail['tahun_masuk']; ?></p>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Jenis Kelamin</b>
+                                    <p class="float-right mb-1"><?= $detail['jenis_kelamin']; ?></p>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>No. Hp</b>
+                                    <p class="float-right mb-1"><?= $detail['no_hp']; ?></p>
+                                </li>
+                            </ul>
+                            <?php if ($user['role_id'] == "1" || $user['role_id'] == "2") { ?>
+                                <a href="<?= base_url($role['menu'] . '/editsiswa/' . $detail['id']); ?>" class="btn btn-primary btn-block">
+                                    <i class="fas fa-pen"></i>
+                                    <b>Ubah Profile</b>
+                                </a>
+                            <?php } ?>
+                            <?php if ($user['id'] == $detail['id']) { ?>
+                                <a href="<?= base_url($role['menu'] . '/editpass/' . $user['id']); ?>" class="btn btn-primary btn-block">
+                                    <i class="fas fa-key"></i>
+                                    <b>Ubah Password</b>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+                <!-- Default box -->
+                <div class="col-12 col-md-12 col-lg-9 order-1 order-md-2">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col col-md-6 text-muted">
+                                    <p class="text-sm">
+                                        <b class="d-block">Tempat, Tanggal Lahir</b>
+                                        <?= $detail['tempat_lahir'] . ', ' . $detail['tgl_lahir']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Alamat</b>
+                                        <?= $detail['alamat']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Anak ke-</b>
+                                        <?= $detail['anak_ke'] . ' dari ' . $detail['dari'] . ' bersaudara'; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Nama Ayah</b>
+                                        <?= $detail['nama_ayah']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">No. Hp Ayah</b>
+                                        <?= $detail['no_hp_ayah']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Pekerjaan Ayah</b>
+                                        <?= $detail['pekerjaan_ayah']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Nama Ibu</b>
+                                        <?= $detail['nama_ibu']; ?>
+                                    </p>
+                                </div>
+                                <div class="col col-md-3 text-muted">
+                                    <p class="text-sm">
+                                        <b class="d-block">No. Hp Ibu</b>
+                                        <?= $detail['no_hp_ibu']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Pekerjaan Ibu</b>
+                                        <?= $detail['pekerjaan_ibu']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Alamat Orang Tua</b>
+                                        <?= $detail['alamat_orangtua']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Nama Wali</b>
+                                        <?= $detail['nama_wali']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">No. Hp Wali</b>
+                                        <?= $detail['no_hp_wali']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Pekerjaan Wali</b>
+                                        <?= $detail['pekerjaan_wali']; ?>
+                                    </p>
+                                    <p class="text-sm">
+                                        <b class="d-block">Alamat Wali</b>
+                                        <?= $detail['alamat_wali']; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.card -->
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-3 float-right">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col col-md text-muted">
+                                    <h5> <b>Dokumen Siswa</b> </h5>
+                                    <?= $this->session->flashdata('message'); ?>
+                                    <ul class="list-unstyled">
+                                        <?php foreach ($dok as $d) : ?>
+                                            <li>
+                                                <?php if ($user['role_id'] == 1 || $user['role_id'] == 2) : ?>
+                                                    <a type="button" class="btn btn-xs" data-toggle="modal" data-target="#editDocModal<?= $d['id_pkl']; ?>">
+                                                        <i class="fas fa-pen fa-sm text-primary"></i>
+                                                    </a>
+
+                                                    <a onclick="deleteConfirm('<?= base_url($role['menu'] . '/deldoksiswa/' . $d['id_pkl'] . '/' . $detail['id']); ?>')" href="#!" type="button" class="btn btn-xs">
+                                                        <i class="fas fa-trash fa-sm text-danger"></i>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <a href="<?= base_url('assets/dist/upload/siswa/' . $d['file']); ?>" class="btn-link text-secondary" target="_blank">
+                                                    <i class="fas fa-fw fa-file-alt"></i>
+                                                    <?= $d['judul']; ?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php if ($user['role_id'] == 1 || $user['role_id'] == 2) : ?>
+                                        <a type="button" class="btn btn-primary btn-xs col" data-toggle="modal" data-target="#addDocModal">
+                                            <i class="fas fa-plus fa-xs"></i>
+                                            Tambah Dokumen
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+<div class="modal fade" id="addDocModal" tabindex="-1" role="dialog" aria-labelledby="addDocModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addDocModalLabel">Unggah Dokumen</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form action="<?= base_url($role['menu'] . '/adddoksiswa/' . $detail['id']); ?>" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="judul" class="col-sm-3 col-form-label">Judul Dokumen</label>
+                        <div class="col-sm">
+                            <input type="hidden" name="siswa" value="<?= $detail['id']; ?>">
+                            <input type="hidden" name="pegawai" value="<?= $user['id']; ?>">
+                            <input type="text" class="form-control form-control-sm" name="judul" id="judul" placeholder="Judul Dokumen" required>
+                            <div class="invalid-feedback">
+                                <?= form_error('judul'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="file" class="col-sm-3 col-form-label">Dokumen</label>
+                        <div class="col-sm">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="file" name="file" required>
+                                <label class="custom-file-label" for="file">Pilih file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php foreach ($dok as $row) : ?>
+    <div class="modal fade" id="editDocModal<?= $row['id_pkl']; ?>" tabindex="-1" role="dialog" aria-labelledby="editDocModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editDocModalLabel">Unggah Dokumen</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="<?= base_url($role['menu'] . '/editdoksiswa/' . $row['id_pkl'] . '/' . $detail['id']); ?>" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="judul" class="col-sm-3 col-form-label">Judul Dokumen</label>
+                            <div class="col-sm">
+                                <input type="hidden" name="siswa" value="<?= $detail['id']; ?>">
+                                <input type="text" class="form-control form-control-sm" name="judul" id="judul" placeholder="Judul Dokumen" value="<?= $row['judul']; ?>" required>
+                                <div class="invalid-feedback">
+                                    <?= form_error('judul'); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="file" class="col-sm-3 col-form-label">Dokumen</label>
+                            <div class="col-sm">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file" name="file">
+                                    <label class="custom-file-label" for="file">Pilih file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">Batal</button>
+                        <button class="btn btn-primary" type="submit">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
